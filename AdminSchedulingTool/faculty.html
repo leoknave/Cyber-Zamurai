@@ -6,8 +6,32 @@
     <title>Faculty Management</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="faculty-page">
+    <!-- Hamburger Navigation Menu -->
+    <div class="hamburger-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="menu" class="hidden">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="sections.html">Sections</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Title -->
     <h2>Faculty Management</h2>
+
+    <!-- Search Filter Input -->
+    <input 
+        type="text" 
+        id="searchFaculty" 
+        placeholder="Search faculty by name, type, or email..." 
+        oninput="filterTable('facultyTable', this.value)"
+    >
+
+    <!-- Faculty Table -->
     <table id="facultyTable">
         <thead>
             <tr>
@@ -20,9 +44,27 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Rows will be dynamically added here -->
+            <!-- Sample Rows for Testing -->
+            <tr>
+                <td>John Doe</td>
+                <td>Professor</td>
+                <td>johndoe@example.com</td>
+                <td>Head of Math Department</td>
+                <td>Room 203</td>
+                <td>Edit | Delete</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>Assistant</td>
+                <td>janesmith@example.com</td>
+                <td>Science Lab Assistant</td>
+                <td>Room 102</td>
+                <td>Edit | Delete</td>
+            </tr>
         </tbody>
     </table>
+
+    <!-- Faculty Form -->
     <h3>Add/Edit Faculty</h3>
     <form id="facultyForm">
         <input type="text" id="name" placeholder="Name" required>
@@ -33,6 +75,9 @@
         <button type="button" id="addFieldButton">Add Custom Field</button>
         <button type="submit">Save</button>
     </form>
+
+    <!-- JavaScript -->
     <script src="js/app.js"></script>
 </body>
 </html>
+
