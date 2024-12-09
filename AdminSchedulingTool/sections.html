@@ -6,8 +6,32 @@
     <title>Section Scheduling</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="sections-page">
+    <!-- Hamburger Navigation Menu -->
+    <div class="hamburger-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="menu" class="hidden">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="sections.html">Sections</a></li>
+        </ul>
+    </div>
+
+    <!-- Page Title -->
     <h2>Section Scheduling</h2>
+
+    <!-- Search Filter Input -->
+    <input 
+        type="text" 
+        id="searchSections" 
+        placeholder="Search sections by course name, faculty, or room..." 
+        oninput="filterTable('sectionTable', this.value)"
+    >
+
+    <!-- Section Scheduling Table -->
     <table id="sectionTable">
         <thead>
             <tr>
@@ -26,9 +50,39 @@
             </tr>
         </thead>
         <tbody>
-            <!-- Rows will be dynamically added here -->
+            <!-- Sample Rows for Testing -->
+            <tr>
+                <td>Math 101</td>
+                <td>MTH101</td>
+                <td>001</td>
+                <td>John Doe</td>
+                <td>Room 203</td>
+                <td>MWF</td>
+                <td>Lecture</td>
+                <td>09:00 AM</td>
+                <td>10:00 AM</td>
+                <td>30</td>
+                <td>Notes</td>
+                <td>Edit | Delete</td>
+            </tr>
+            <tr>
+                <td>Physics 101</td>
+                <td>PHY101</td>
+                <td>002</td>
+                <td>Jane Smith</td>
+                <td>Room 304</td>
+                <td>TR</td>
+                <td>Lab</td>
+                <td>11:00 AM</td>
+                <td>12:30 PM</td>
+                <td>25</td>
+                <td>Lab Notes</td>
+                <td>Edit | Delete</td>
+            </tr>
         </tbody>
     </table>
+
+    <!-- Add/Edit Section Form -->
     <h3>Add/Edit Section</h3>
     <form id="sectionForm">
         <input type="text" id="courseName" placeholder="Course Name" required>
@@ -50,6 +104,7 @@
         <button type="submit">Save</button>
     </form>
 
+    <!-- Timetable Section -->
     <h2>Timetable</h2>
     <button id="showTimetableButton">Show Timetable</button>
     <div id="timetableContainer" class="hidden">
@@ -69,6 +124,10 @@
             </div>
         </div>
     </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
 
     <script src="js/app.js"></script>
 </body>
