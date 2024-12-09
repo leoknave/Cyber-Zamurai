@@ -27,16 +27,18 @@ document.addEventListener("DOMContentLoaded", function () {
     const showTimetableButton = document.getElementById("showTimetableButton");
     const timetableContainer = document.getElementById("timetableContainer");
 
-    showTimetableButton.addEventListener("click", () => {
-        if (timetableContainer.classList.contains("hidden")) {
-            timetableContainer.classList.remove("hidden");
-            populateTimetable(); // Populate the timetable only when showing
-            showTimetableButton.textContent = "Hide Timetable";
-        } else {
-            timetableContainer.classList.add("hidden");
-            showTimetableButton.textContent = "Show Timetable";
-        }
-    });
+    if (showTimetableButton && timetableContainer) {
+        showTimetableButton.addEventListener("click", () => {
+            if (timetableContainer.classList.contains("hidden")) {
+                timetableContainer.classList.remove("hidden");
+                populateTimetable(); // Populate the timetable only when showing
+                showTimetableButton.textContent = "Hide Timetable";
+            } else {
+                timetableContainer.classList.add("hidden");
+                showTimetableButton.textContent = "Show Timetable";
+            }
+        });
+    }
 });
 
 // Function to Set Up a Form and Associated Table
@@ -171,6 +173,35 @@ function loadTable(table, data) {
     `).join("");
 }
 
+// Filter/Search Function for Tables
+function filterTable(tableId, searchValue) {
+    const input = searchValue.toLowerCase(); // Convert input to lowercase for case-insensitive search
+    const table = document.getElementById(tableId);
+    if (!table) return; // If table is not found, exit
+    const rows = table.getElementsByTagName("tr");
+
+    for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName("td");
+        let rowMatches = false;
+
+        for (let j = 0; j < cells.length; j++) {
+            const cellText = cells[j].textContent.toLowerCase();
+            if (cellText.includes(input)) {
+                rowMatches = true;
+                break;
+            }
+        }
+
+        rows[i].style.display = rowMatches ? "" : "none"; // Show or hide the row
+    }
+}
+
+// Toggle the Hamburger Menu
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
+
 // Populate Timetable with Section Data
 function populateTimetable() {
     const timetableBody = document.querySelector(".timetable .body");
@@ -211,6 +242,5 @@ function populateTimetable() {
 
         timetableBody.appendChild(row);
     });
-}
 }
 
