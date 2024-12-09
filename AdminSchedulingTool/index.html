@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Hamburger Navigation Menu -->
+    <div class="hamburger-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="menu" class="hidden">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="sections.html">Sections</a></li>
+        </ul>
+    </div>
+
     <!-- Hero Section -->
     <header class="hero-section">
         <div class="hero-content">
@@ -15,27 +28,30 @@
         </div>
     </header>
 
+   <!-- Main Content Section -->
+<main class="grid-container">
+    <div class="card">
+        <h2>Faculty Management</h2>
+        <p>Manage and organize faculty information including names, emails, and more.</p>
+        <a href="faculty.html" class="button">Go to Faculty</a>
+    </div>
+    <div class="card">
+        <h2>Course Management</h2>
+        <p>Create, edit, and view all courses in one centralized place.</p>
+        <a href="courses.html" class="button">Go to Courses</a>
+    </div>
+    <div class="card">
+        <h2>Section Scheduling</h2>
+        <p>Assign faculty to sections and plan courses for each semester.</p>
+        <a href="sections.html" class="button">Go to Sections</a>
+    </div>
+</main>
 
+<!-- Logo Section -->
+<div class="logo-section">
+    <img src="images/admin-logo-2.png" alt="Admin Scheduler Logo" class="hero-logo">
+</div>
 
-    <!-- Main Content Section -->
-    <main class="grid-container">
-        <div class="card">
-            <h2>Faculty Management</h2>
-            <p>Manage and organize faculty information including names, emails, and more.</p>
-            <a href="faculty.html" class="button">Go to Faculty</a>
-        </div>
-        <div class="card">
-            <h2>Course Management</h2>
-            <p>Create, edit, and view all courses in one centralized place.</p>
-            <a href="courses.html" class="button">Go to Courses</a>
-        </div>
-        <div class="card">
-            <h2>Section Scheduling</h2>
-            <p>Assign faculty to sections and plan courses for each semester.</p>
-            <a href="sections.html" class="button">Go to Sections</a>
-        </div>
-
-    </main>
 
     <!-- Footer Section -->
     <footer class="footer">
@@ -48,5 +64,8 @@
             </ul>
         </nav>
     </footer>
+    <script src="js/app.js"></script>
 </body>
 </html>
+
+
