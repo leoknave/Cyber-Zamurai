@@ -7,7 +7,21 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Hamburger Navigation Menu -->
+    <div class="hamburger-menu">
+        <div class="hamburger" onclick="toggleMenu()">
+            &#9776;
+        </div>
+        <ul id="menu" class="hidden">
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="faculty.html">Faculty</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="sections.html">Sections</a></li>
+        </ul>
+    </div>
+
     <h2>Course Management</h2>
+    <input type="text" id="searchCourses" placeholder="Search..." oninput="filterTable('courseTable', this.value)">
     <table id="courseTable">
         <thead>
             <tr>
